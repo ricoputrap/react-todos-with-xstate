@@ -2,9 +2,10 @@ import { AnyEventObject, assign, createMachine } from "xstate";
 import loadInitialData from "../services/loadInitialData";
 import { Category, Color, Context, Todo } from "../types";
 
-const myMachine = 
+const mainMachine = 
 /** @xstate-layout N4IgpgJg5mDOIC5QAoC2BDAxgCwJYDswBKAOgBsB7dCAqAYggsJIIDcKBrMEtLPQ0pWq0EbCpnQAXXEwDaABgC6iUAAcKsXNKYqQAD0QBmACwAmEoYDsANmvHjARmN35AVkMAaEAE9El8w4Opq7yDtahAJyGrqYOAL4JXvgUEHC6vDgExORUNPhQuuqa2vi6BgiG1l6+CK4RJBEAHEEhhqZthhFOrokgGfzZBFq46GQA+hBS6GNCqRCFGsM6SPqI1g71DvLODpaNltuN7tWIRySu1hfGEc7W0YERvf1ZRAvFMqUr5UEnCAC0QRI8mB8lM1kshiObXaPQScSAA */
 createMachine({
+  id: "(machine)",
   context: {
     todos: [] as Todo[],
     categories: [] as Category[],
@@ -25,7 +26,14 @@ createMachine({
     },
     initial_data_loaded: {},
   },
-  id: "(machine)",
+  tsTypes: {} as import("./mainMachine.typegen").Typegen0,
+  schema: {
+    services: {} as {
+      LOAD_INITIAL_DATA: {
+        data: Context[]
+      }
+    }
+  }
 }, {
   services: {
     LOAD_INITIAL_DATA: loadInitialData
@@ -37,4 +45,4 @@ createMachine({
   }
 });
 
-export default myMachine;
+export default mainMachine;
