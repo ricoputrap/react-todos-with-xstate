@@ -4,15 +4,15 @@ const loadInitialData = async (): Promise<Context> => {
   const response: Response = await fetch("data.json");
   const data: FetchedData = await response.json();
 
-  const colorLookup: any = data.colors.reduce((lookup, color) => {
+  const colorLookup = data.colors.reduce((lookup, color) => {
     lookup[color.id] = color;
     return lookup;
-  }, {});
+  }, {} as Record<number, Color>);
 
-  const categoryLookup: any = data.categories.reduce((lookup, category) => {
+  const categoryLookup = data.categories.reduce((lookup, category) => {
     lookup[category.id] = category;
     return lookup;
-  }, {});
+  }, {} as Record<number, Category>);
 
   const categories: Category[] = data.categories.map(category => {
     const color: Color = colorLookup[category.color as number];
