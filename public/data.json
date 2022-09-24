@@ -1,0 +1,27 @@
+{
+  "colors": [
+    { "id": 1, "name": "blue" },
+    { "id": 2, "name": "red" },
+    { "id": 3, "name": "green" },
+    { "id": 4, "name": "yellow" },
+    { "id": 5, "name": "purple" },
+    { "id": 6, "name": "gray" }
+  ],
+  "categories": [
+    { "id": 1, "name": "Design", "color": 1 },
+    { "id": 2, "name": "Programming", "color": 2 },
+    { "id": 3, "name": "Marketing", "color": 3 },
+    { "id": 4, "name": "Finance", "color": 4 },
+    { "id": 5, "name": "Support", "color": 5 },
+    { "id": 6, "name": "Sleep", "color": 6 }
+  ],
+  "todos": [
+    { "id": 1, "title": "Lunch with coworker", "completed": false, "category": 6 },
+    { "id": 2, "title": "Doing assignment", "completed": false, "category": 2 },
+    { "id": 3, "title": "Meeting with leads", "completed": false, "category": 3 },
+    { "id": 4, "title": "Designing Session landing page", "completed": false, "category": 1 },
+    { "id": 5, "title": "Brainstorming a new IG post", "completed": false, "category": 3 },
+    { "id": 6, "title": "Planning for next month budget", "completed": false, "category": 4 },
+    { "id": 7, "title": "Assist Alex on his task", "completed": false, "category": 5 }
+  ]
+}
