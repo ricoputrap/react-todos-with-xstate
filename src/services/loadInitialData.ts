@@ -1,10 +1,6 @@
-import { AnyEventObject } from "xstate";
 import { Category, Color, Context, FetchedData, Todo } from "../types";
 
-const loadInitialData = async (
-  context: Context,
-  event: AnyEventObject
-): Promise<Context> => {
+const loadInitialData = async (): Promise<Context> => {
   const response: Response = await fetch("data.json");
   const data: FetchedData = await response.json();
 

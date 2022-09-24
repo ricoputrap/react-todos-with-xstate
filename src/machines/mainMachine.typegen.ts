@@ -14,8 +14,8 @@ export interface Typegen0 {
     LOAD_INITIAL_DATA: "done.invoke.(machine).loading:invocation[0]";
   };
   missingImplementations: {
-    actions: never;
-    services: never;
+    actions: "SET_INITIAL_DATA";
+    services: "LOAD_INITIAL_DATA";
     guards: never;
     delays: never;
   };

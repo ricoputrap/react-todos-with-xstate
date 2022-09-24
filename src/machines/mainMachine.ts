@@ -1,5 +1,4 @@
-import { AnyEventObject, assign, createMachine } from "xstate";
-import loadInitialData from "../services/loadInitialData";
+import { createMachine } from "xstate";
 import { Category, Color, Context, Todo } from "../types";
 
 const mainMachine = 
@@ -33,15 +32,6 @@ createMachine({
         data: Context[]
       }
     }
-  }
-}, {
-  services: {
-    LOAD_INITIAL_DATA: loadInitialData
-  },
-  actions: {
-    SET_INITIAL_DATA: assign((context: Context, event: AnyEventObject) => {
-      return event.data;
-    })
   }
 });
 
