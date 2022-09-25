@@ -5,16 +5,19 @@ import { Category, Color, Todo } from '../types'
 
 type Props = {
   todo: Todo;
+  isHighlighted: boolean;
+  onClicked: () => void;
 }
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
+const TodoItem: React.FC<Props> = ({ todo, isHighlighted, onClicked }) => {
   return (
     <Flex
       columnGap="10px"
       padding="5px 8px"
-      background="white"
+      background={isHighlighted ? "background !important" : "white"}
       borderRadius="4px"
       minHeight="48px"
+      onClick={onClicked}
       _hover={{
         backgroundColor: "#F9F9F9",
         cursor: "pointer"
@@ -23,7 +26,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       <Checkbox size="lg" />
       
       <Stack rowGap={0} justifyContent="center">
-        <Text color="primary">
+        <Text color={isHighlighted ? "white" : "primary"}>
           { todo.title }
         </Text>
 
@@ -34,7 +37,11 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
             backgroundColor={ ((todo.category as Category).color as Color).name }
             borderRadius="100%"
           />
-          <Text color="secondary" fontSize="10px" marginTop="0 !important">
+          <Text
+            color={isHighlighted ? "white" : "secondary"}
+            fontSize="10px"
+            marginTop="0 !important"
+          >
             { (todo.category as Category).name }
           </Text>
         </Flex>

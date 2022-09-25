@@ -20,6 +20,7 @@ export type Context = {
   colors: Color[];
   categories: Category[];
   todos: Todo[];
+  highlightedIndex?: number;
 }
 
 export type FetchedData = Context;

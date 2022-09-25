@@ -14,12 +14,13 @@ export interface Typegen0 {
     LOAD_INITIAL_DATA: "done.invoke.(machine).loading:invocation[0]";
   };
   missingImplementations: {
-    actions: "SET_INITIAL_DATA";
+    actions: "SET_INITIAL_DATA" | "SET_HIGHLIGHTED_ITEM";
     services: "LOAD_INITIAL_DATA";
     guards: never;
     delays: never;
   };
   eventsCausingActions: {
+    SET_HIGHLIGHTED_ITEM: "CLICK_ITEM";
     SET_INITIAL_DATA: "done.invoke.(machine).loading:invocation[0]";
   };
   eventsCausingServices: {
