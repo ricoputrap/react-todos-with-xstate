@@ -15,6 +15,10 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       background="white"
       borderRadius="4px"
       minHeight="48px"
+      _hover={{
+        backgroundColor: "#F9F9F9",
+        cursor: "pointer"
+      }}
     >
       <Checkbox size="lg" />
       
