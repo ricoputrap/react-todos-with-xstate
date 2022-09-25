@@ -9,11 +9,6 @@ const loadInitialData = async (): Promise<Context> => {
     return lookup;
   }, {} as Record<number, Color>);
 
-  const categoryLookup = data.categories.reduce((lookup, category) => {
-    lookup[category.id] = category;
-    return lookup;
-  }, {} as Record<number, Category>);
-
   const categories: Category[] = data.categories.map(category => {
     const color: Color = colorLookup[category.color as number];
 
@@ -23,6 +18,11 @@ const loadInitialData = async (): Promise<Context> => {
     }
   });
 
+  const categoryLookup = categories.reduce((lookup, category) => {
+    lookup[category.id] = category;
+    return lookup;
+  }, {} as Record<number, Category>);
+
   const todos: Todo[] = data.todos.map(todo => {
     const category: Category = categoryLookup[todo.category as number];
 
@@ -30,7 +30,7 @@ const loadInitialData = async (): Promise<Context> => {
       ...todo,
       category
     }
-  })
+  });
 
   return {
     colors: data.colors,
